@@ -1,0 +1,45 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Sun Feb 10 20:32:32 2019
+
+@author: 72329
+"""
+import json
+import requests
+from wxpy import *
+
+bot = Bot(cache_path=True)
+
+myfriend=bot.friends().search(u'周猫')[0]
+print myfriend
+
+###def auto_ai(info):
+   # api_key='577be8676a5a49b8a175977940807d22'
+  #  url='http://www.tuling123.com/openapi/api?key='+api_key+'&info='+info
+    
+  #  res=requests.get(url)
+  #  res.encoding='utf-8'
+ #   jd=json.loads(res.text)
+###    print('\nTuling:'+jd['text'])
+
+'''info1=u'[ROBOT1]大家好，我是智能机器人一号，这里是测试阶段，回复1，得到刘梦梦的亲亲，回复2，得到刘梦梦的臭屁'
+myfriend.send(info1)
+
+@bot.register(myfriend)
+def reply_my_friend(msg):
+    if (msg=='1' or msg ==1):
+        ret = '[ROBOT1]kiss,kiss'
+    else if (msg==2 or msg =='2'):
+        ret = '[ROBOT1]PUPUPUPUPU'
+    return ret
+
+embed()
+'''
+
+@bot.register(myfriend)
+def print_myfriend_msg(msg):
+    print msg.text
+
+embed()
+
+
